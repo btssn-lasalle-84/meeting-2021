@@ -1,0 +1,28 @@
+<resources>
+    <string name="nom_application">Meeting</string>
+
+    <string name="label_adresseIP">Adresse IP :</string>
+    <string name="affichage_adresseIP">--</string>
+    <string name="label_nom">Nom :</string>
+    <string name="affichage_nom">--</string>
+    <string name="label_lieu">Lieu :</string>
+    <string name="affichage_lieu">--</string>
+    <string name="label_description">Description :</string>
+    <string name="affichage_description">--</string>
+    <string name="label_superficie">Superficie :</string>
+    <string name="affichage_superficie">--</string>
+    <string name="unite_superficie">m²</string>
+    <string name="label_temperature">Température :</string>
+    <string name="affichage_temperature">--</string>
+    <string name="unite_temperature">°C</string>
+    <string name="label_indice_de_confort">Niveau de confort :</string>
+    <string name="affichage_indice_de_confort">--</string>
+    <string name="label_disponibilite">Disponibilité :</string>
+    <string name="affichage_disponibilite">--</string>
+    <string name="affichage_favori">--</string>
+    <string name="bouton_reserver">Réserver</string>
+    <string name="bouton_liberer">Libérer</string>
+    <string name="bouton_modifier">Editer les informations</string>
+    <string name="bouton_ajouter_favori">Ajouter aux favoris</string>
+    <string name="bouton_retirer_favori">Retirer des favoris</string>
+</resources>

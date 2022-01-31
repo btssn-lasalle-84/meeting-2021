@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layoutBoiteFiltreNiveauDeConfort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/filtreNiveauDeConfort"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/boutonRadioChaud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chaud"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioTiede"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiède"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioLegerementTiede"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Légèrement tiède"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioNeutre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Neutre"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioLegerementFrais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Légèrement frais"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioFrais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frais"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioFroid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Froid"
+                android:onClick="onRadioButtonClicked" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

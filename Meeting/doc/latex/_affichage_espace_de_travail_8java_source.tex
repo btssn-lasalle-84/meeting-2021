@@ -1,0 +1,165 @@
+\hypertarget{_affichage_espace_de_travail_8java_source}{}\subsection{Affichage\+Espace\+De\+Travail.\+java}
+\label{_affichage_espace_de_travail_8java_source}\index{Affichage\+Espace\+De\+Travail.\+java@{Affichage\+Espace\+De\+Travail.\+java}}
+
+\begin{DoxyCode}
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00001}\hyperlink{namespacecom_1_1lasalle_1_1meeting}{00001} \textcolor{keyword}{package }com.lasalle.meeting;
+00002 
+00003 \textcolor{keyword}{import} androidx.appcompat.app.AppCompatActivity;
+00004 
+00005 \textcolor{keyword}{import} android.content.Intent;
+00006 \textcolor{keyword}{import} android.graphics.Color;
+00007 \textcolor{keyword}{import} android.os.Bundle;
+00008 \textcolor{keyword}{import} android.util.Log;
+00009 \textcolor{keyword}{import} android.view.View;
+00010 \textcolor{keyword}{import} android.widget.TextView;
+00011 \textcolor{keyword}{import} android.widget.Button;
+00012 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00025}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail}{00025} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail}{AffichageEspaceDeTravail} \textcolor{keyword}{extends} AppCompatActivity
+00026 \{
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00030}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a8606eb11c7b28f52226544de431d86a4}{00030}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a8606eb11c7b28f52226544de431d86a4}{TAG} = \textcolor{stringliteral}{"\_AffichageEspaceTravail"};
+00031 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00035}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a934d41c1c41882b94b65a95cee5aca13}{00035}     \textcolor{keyword}{private} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{EspaceDeTravail} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a934d41c1c41882b94b65a95cee5aca13}{espaceDeTravail};
+00036 
+00040     @Override
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00041}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a333ff077dde89888afc62366f6dccf06}{00041}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a333ff077dde89888afc62366f6dccf06}{onCreate}(Bundle savedInstanceState)
+00042     \{
+00043         super.onCreate(savedInstanceState);
+00044         setContentView(R.layout.activity\_affichage\_espace\_de\_travail);
+00045         Intent intent = getIntent();
+00046         espaceDeTravail = (\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{EspaceDeTravail})intent.getSerializableExtra(\textcolor{stringliteral}{"unEspaceDeTravail"});
+00047 
+00048         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a62159c3fd69a3d4f03306bd3e75c09ce}{afficherNom}();
+00049         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a86fc32986ef9ae8f6ef7fca78d91f648}{afficherLieu}();
+00050         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a4afb30e3faf37f738f6261fc0696d62b}{afficherDescription}();
+00051         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_ae8f1d5cb6d99aced1996b1b2bbcebe26}{afficherSuperficie}();
+00052         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a9474bdc380c78e632cc8d384d7393f50}{afficherTemperature}();
+00053         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_acd704eb42f942a10a118d872ffe779a3}{afficherIndiceDeConfort}();
+00054         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a597703fc6f7e82b79ac7047640fa9323}{afficherDisponibilite}();
+00055         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a01e3d2585c84043dbe5086a2fc81c371}{afficherBoutonsReservation}();
+00056     \}
+00057 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00061}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a62159c3fd69a3d4f03306bd3e75c09ce}{00061}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a62159c3fd69a3d4f03306bd3e75c09ce}{afficherNom}()
+00062     \{
+00063         TextView affichageNom = (TextView)findViewById(R.id.affichageNom);
+00064         affichageNom.setText(espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae662e2674616a8548755cb64a38e0432}{getNom}());
+00065 
+00066         Log.d(TAG, \textcolor{stringliteral}{"afficherNom() "} + espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae662e2674616a8548755cb64a38e0432}{getNom}());
+00067     \}
+00068 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00072}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a86fc32986ef9ae8f6ef7fca78d91f648}{00072}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a86fc32986ef9ae8f6ef7fca78d91f648}{afficherLieu}()
+00073     \{
+00074         TextView affichageLieu = (TextView)findViewById(R.id.affichageLieu);
+00075         affichageLieu.setText(espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_af320aa4ad7711ed52b3b5aef1bd52dd1}{getLieu}());
+00076 
+00077         Log.d(TAG, \textcolor{stringliteral}{"afficherLieu() "} + espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_af320aa4ad7711ed52b3b5aef1bd52dd1}{getLieu}());
+00078     \}
+00079 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00083}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a4afb30e3faf37f738f6261fc0696d62b}{00083}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a4afb30e3faf37f738f6261fc0696d62b}{afficherDescription}()
+00084     \{
+00085         TextView affichageDescription = (TextView)findViewById(R.id.affichageDescription);
+00086         affichageDescription.setText(espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a815ecee3f01117f2d9b1d9441b214907}{getDescription}());
+00087 
+00088         Log.d(TAG, \textcolor{stringliteral}{"afficherDescription() "} + espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a815ecee3f01117f2d9b1d9441b214907}{getDescription}());
+00089     \}
+00090 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00094}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_ae8f1d5cb6d99aced1996b1b2bbcebe26}{00094}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_ae8f1d5cb6d99aced1996b1b2bbcebe26}{afficherSuperficie}()
+00095     \{
+00096         TextView affichageSuperficie = (TextView)findViewById(R.id.affichageSuperficie);
+00097         affichageSuperficie.setText(String.valueOf(espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae2c734da9d454b368ddb056b1cdae499}{getSuperficie}()));
+00098 
+00099         Log.d(TAG, \textcolor{stringliteral}{"afficherSuperficie() "} + espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae2c734da9d454b368ddb056b1cdae499}{getSuperficie}());
+00100     \}
+00101 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00105}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a9474bdc380c78e632cc8d384d7393f50}{00105}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a9474bdc380c78e632cc8d384d7393f50}{afficherTemperature}()
+00106     \{
+00107         TextView affichageTemperature = (TextView)findViewById(R.id.affichageTemperature);
+00108         affichageTemperature.setText(String.valueOf(espaceDeTravail.
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4c01c37fa6431d48c59274aaa00fdbe3}{getTemperature}()));
+00109 
+00110         Log.d(TAG, \textcolor{stringliteral}{"afficherTemperature() "} + espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4c01c37fa6431d48c59274aaa00fdbe3}{getTemperature}());
+00111     \}
+00112 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00116}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_acd704eb42f942a10a118d872ffe779a3}{00116}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_acd704eb42f942a10a118d872ffe779a3}{afficherIndiceDeConfort}()
+00117     \{
+00118         TextView affichageIndiceDeConfort = (TextView)findViewById(R.id.affichageIndiceDeConfort);
+00119         affichageIndiceDeConfort.setText(String.valueOf(espaceDeTravail.
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9d7b3bd8aa78a10c70851b477d0f522d}{getIndiceDeConfort}()));
+00120 
+00121         Log.d(TAG, \textcolor{stringliteral}{"afficherIndiceDeConfort() "} + espaceDeTravail.
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9d7b3bd8aa78a10c70851b477d0f522d}{getIndiceDeConfort}());
+00122     \}
+00123 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00127}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a597703fc6f7e82b79ac7047640fa9323}{00127}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a597703fc6f7e82b79ac7047640fa9323}{afficherDisponibilite}()
+00128     \{
+00129         TextView affichageDisponibilite = (TextView)findViewById(R.id.affichageDisponibilite);
+00130 
+00131         \textcolor{keywordflow}{if}(!espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}())
+00132         \{
+00133             Log.d(TAG, \textcolor{stringliteral}{"Libre"});
+00134             affichageDisponibilite.setText(\textcolor{stringliteral}{"Libre"});
+00135             affichageDisponibilite.setTextColor(Color.parseColor(\textcolor{stringliteral}{"#00FF00"})); \textcolor{comment}{// Color.rgb(0,255,0)}
+00136         \}
+00137         \textcolor{keywordflow}{else}
+00138         \{
+00139             Log.d(TAG, \textcolor{stringliteral}{"Occupé"});
+00140             affichageDisponibilite.setText(\textcolor{stringliteral}{"Occupé"});
+00141             affichageDisponibilite.setTextColor(Color.rgb(255,0,0));
+00142         \}
+00143 
+00144         Log.d(TAG, \textcolor{stringliteral}{"afficherDisponibilite() "} + espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}());
+00145     \}
+00146 
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00150}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a01e3d2585c84043dbe5086a2fc81c371}{00150}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a01e3d2585c84043dbe5086a2fc81c371}{afficherBoutonsReservation}()
+00151     \{
+00152         Button boutonReserver = (Button)findViewById(R.id.boutonReserver);
+00153         Button boutonLiberer = (Button)findViewById(R.id.boutonLiberer);
+00154 
+00155         boutonReserver.setOnClickListener(
+00156                 \textcolor{keyword}{new} View.OnClickListener()
+00157                 \{
+00158                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(View v)
+00159                     \{
+00160                         espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a42d483a68e6d0d50707dbd3dddd164c2}{reserver}();
+00161                         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a597703fc6f7e82b79ac7047640fa9323}{afficherDisponibilite}();
+00162                         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a01e3d2585c84043dbe5086a2fc81c371}{afficherBoutonsReservation}();
+00163                     \}
+00164                 \}
+00165         );
+00166 
+00167         boutonLiberer.setOnClickListener(
+00168                 \textcolor{keyword}{new} View.OnClickListener()
+00169                 \{
+00170                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(View v)
+00171                     \{
+00172                         espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_affce017a0a5ba338d7b0b7f6bbce6c68}{liberer}();
+00173                         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a597703fc6f7e82b79ac7047640fa9323}{afficherDisponibilite}();
+00174                         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a01e3d2585c84043dbe5086a2fc81c371}{afficherBoutonsReservation}();
+00175                     \}
+00176                 \}
+00177         );
+00178 
+00179         \textcolor{keywordflow}{if}(!espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}())
+00180         \{
+00181             boutonReserver.setVisibility(View.VISIBLE);
+00182             boutonLiberer.setVisibility(View.GONE);
+00183         \}
+00184         \textcolor{keywordflow}{else}
+00185         \{
+00186             boutonReserver.setVisibility(View.GONE);
+00187             boutonLiberer.setVisibility(View.VISIBLE);
+00188         \}
+00189     \}
+00190 
+00194     @Override
+\Hypertarget{_affichage_espace_de_travail_8java_source_l00195}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a2f3649336aff1f2126f817c72faf30c2}{00195}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_affichage_espace_de_travail_a2f3649336aff1f2126f817c72faf30c2}{finish}()
+00196     \{
+00197         Log.d(TAG, \textcolor{stringliteral}{"finish()"});
+00198 
+00199         Intent intent = \textcolor{keyword}{new} Intent();
+00200         intent.putExtra(\textcolor{stringliteral}{"unEspaceDeTravail"}, espaceDeTravail);
+00201 
+00202         setResult(RESULT\_OK, intent);
+00203         super.finish();
+00204     \}
+00205 \}
+\end{DoxyCode}

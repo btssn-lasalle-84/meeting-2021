@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AffichageEspaceDeTravail">
+
+    <LinearLayout
+        android:id="@+id/layoutAffichageEspaceDeTravail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layoutAdresseIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingTop="10sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/textViewAdresseIP"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_adresseIP"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/affichageAdresseIP"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_adresseIP"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="5sp">
+
+            <TextView
+                android:id="@+id/textViewNom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="Salle"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/affichageNom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_nom"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iconeFavori"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:drawable/btn_star_big_on" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="5sp">
+
+            <TextView
+                android:id="@+id/affichageDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_description"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/affichageLieu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_lieu"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutSuperficie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:id="@+id/labelSuperficie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_superficie"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/affichageSuperficie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_superficie"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/uniteSuperficie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/unite_superficie"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTemperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/labelTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_temperature"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/affichageTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_temperature"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/uniteTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/unite_temperature"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutIndiceConfort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:id="@+id/textViewIndiceConfort"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_indice_de_confort"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/affichageIndiceDeConfort"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_indice_de_confort"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDisponibilite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:id="@+id/affichageDisponibilite"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/affichage_disponibilite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutReservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/boutonReserver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/bouton_reserver"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/boutonLiberer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/bouton_liberer"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/boutonModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/bouton_modifier"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/boutonAjouterFavori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/bouton_ajouter_favori"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/boutonRetirerFavori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/bouton_retirer_favori"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

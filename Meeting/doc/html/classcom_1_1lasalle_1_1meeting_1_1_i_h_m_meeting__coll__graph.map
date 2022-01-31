@@ -1,0 +1,5 @@
+<map id="com.lasalle.meeting.IHMMeeting" name="com.lasalle.meeting.IHMMeeting">
+<area shape="rect" id="node2" href="$classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur.html" title="{com.lasalle.meeting.Espace\lDeTravailAdaptateur\n|&#45; TAG\l|+ EspaceDeTravailAdaptateur()\l+ getView()\l}" alt="" coords="5,337,211,444"/>
+<area shape="rect" id="node3" href="$classcom_1_1lasalle_1_1meeting_1_1_communication.html" title="Communication entre l&#39;application et le portier. " alt="" coords="235,132,477,649"/>
+<area shape="rect" id="node4" href="$class_runnable.html" title="{Runnable\n||}" alt="" coords="317,5,395,83"/>
+</map>

@@ -1,0 +1,146 @@
+\hypertarget{_espace_de_travail_8java_source}{}\subsection{Espace\+De\+Travail.\+java}
+\label{_espace_de_travail_8java_source}\index{Espace\+De\+Travail.\+java@{Espace\+De\+Travail.\+java}}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }com.lasalle.meeting;
+00002 
+00003 \textcolor{keyword}{import} android.util.Log;
+00004 
+00005 \textcolor{keyword}{import} java.io.Serializable;
+00006 \textcolor{keyword}{import} java.util.Arrays;
+00007 \textcolor{keyword}{import} java.util.List;
+00008 
+\Hypertarget{_espace_de_travail_8java_source_l00021}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{00021} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{EspaceDeTravail} \textcolor{keyword}{implements} Serializable
+00022 \{
+\Hypertarget{_espace_de_travail_8java_source_l00026}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a30a7c9d0d084360b166487dbcdf5bad1}{00026}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a30a7c9d0d084360b166487dbcdf5bad1}{TAG} = \textcolor{stringliteral}{"\_EspaceDeTravail"};
+00027 
+\Hypertarget{_espace_de_travail_8java_source_l00031}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa4d9547d0170feeeb49c123e36226b79}{00031}     \textcolor{keyword}{private} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa4d9547d0170feeeb49c123e36226b79}{adresseIP};
+\Hypertarget{_espace_de_travail_8java_source_l00032}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9c06de6de73757cbec902e14055969ce}{00032}     \textcolor{keyword}{private} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9c06de6de73757cbec902e14055969ce}{nom};
+\Hypertarget{_espace_de_travail_8java_source_l00033}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a375f1e6b0d3590706d863f6dbd86dd11}{00033}     \textcolor{keyword}{private} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a375f1e6b0d3590706d863f6dbd86dd11}{lieu};
+\Hypertarget{_espace_de_travail_8java_source_l00034}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4633baf86d38c201c7e288fda3604bd7}{00034}     \textcolor{keyword}{private} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4633baf86d38c201c7e288fda3604bd7}{description};
+\Hypertarget{_espace_de_travail_8java_source_l00035}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3a5b9c42fa29930b092154e1bd0e4c10}{00035}     \textcolor{keyword}{private} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3a5b9c42fa29930b092154e1bd0e4c10}{superficie};
+\Hypertarget{_espace_de_travail_8java_source_l00036}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ad5349fa46af27855755ce6cee644a6e2}{00036}     \textcolor{keyword}{private} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ad5349fa46af27855755ce6cee644a6e2}{temperature};
+\Hypertarget{_espace_de_travail_8java_source_l00037}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a6a75c9c45ccb98895e02a1864bf4a41d}{00037}     \textcolor{keyword}{private} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a6a75c9c45ccb98895e02a1864bf4a41d}{indiceDeConfort};
+\Hypertarget{_espace_de_travail_8java_source_l00038}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a8913c30ae6b72ae4f35962b1ecfc496b}{00038}     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a8913c30ae6b72ae4f35962b1ecfc496b}{estReserve};
+\Hypertarget{_espace_de_travail_8java_source_l00039}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adbda10d59725486cb1151c050a830114}{00039}     \textcolor{keyword}{private} \textcolor{keyword}{static} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{Communication} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adbda10d59725486cb1151c050a830114}{communication} = null;
+00040 
+\Hypertarget{_espace_de_travail_8java_source_l00044}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a30fbba6ac01606498fbc123f1bbeaf14}{00044}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a30fbba6ac01606498fbc123f1bbeaf14}{CHAMP\_NOM} = 0;
+\Hypertarget{_espace_de_travail_8java_source_l00045}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9284e3c1fd38eae57b74ca814b285586}{00045}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9284e3c1fd38eae57b74ca814b285586}{CHAMP\_DESCRIPTION} = 1;
+\Hypertarget{_espace_de_travail_8java_source_l00046}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aec533da6058aa1eea7c92e4f6e174f1a}{00046}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aec533da6058aa1eea7c92e4f6e174f1a}{CHAMP\_LIEU} = 2;
+\Hypertarget{_espace_de_travail_8java_source_l00047}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3f0b742c19d2e62d86c7a464d326e555}{00047}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3f0b742c19d2e62d86c7a464d326e555}{CHAMP\_SUPERFICIE} = 3;
+\Hypertarget{_espace_de_travail_8java_source_l00048}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a74d29b35a8171181988487a87782f26f}{00048}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a74d29b35a8171181988487a87782f26f}{CHAMP\_DISPONIBILITE} = 4;
+\Hypertarget{_espace_de_travail_8java_source_l00049}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a51854896c3a74fc72477b4fe556cd519}{00049}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a51854896c3a74fc72477b4fe556cd519}{CHAMP\_INDICE\_DE\_CONFORT} = 5;
+\Hypertarget{_espace_de_travail_8java_source_l00050}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a71c8e2beaf3f0a5584eb614e5a68bd29}{00050}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a71c8e2beaf3f0a5584eb614e5a68bd29}{CHAMP\_TEMPERATURE} = 6;
+00051 
+\Hypertarget{_espace_de_travail_8java_source_l00055}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3940b7fa99249447112b00ec89fcd3d1}{00055}     \textcolor{keyword}{public} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3940b7fa99249447112b00ec89fcd3d1}{EspaceDeTravail}()
+00056     \{
+00057         this.adresseIP = \textcolor{stringliteral}{"\(\backslash\)0"};
+00058         this.nom = \textcolor{stringliteral}{"\(\backslash\)0"};
+00059         this.lieu = \textcolor{stringliteral}{"\(\backslash\)0"};
+00060         this.description = \textcolor{stringliteral}{"\(\backslash\)0"};
+00061         this.superficie = 0;
+00062         this.temperature = 0;
+00063         this.indiceDeConfort = 0;
+00064         this.estReserve = \textcolor{keyword}{false};
+00065     \}
+00066 
+\Hypertarget{_espace_de_travail_8java_source_l00070}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa1f0c767a1b77048cfad17bbd49e9fe5}{00070}     \textcolor{keyword}{public} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa1f0c767a1b77048cfad17bbd49e9fe5}{EspaceDeTravail}(String adresseIP, String nom, String lieu, String description, \textcolor{keywordtype}{
+      int} superficie, \textcolor{keywordtype}{int} temperature, \textcolor{keywordtype}{int} indiceDeConfort, \textcolor{keywordtype}{boolean} estReserve)
+00071     \{
+00072         this.adresseIP = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa4d9547d0170feeeb49c123e36226b79}{adresseIP};
+00073         this.nom = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9c06de6de73757cbec902e14055969ce}{nom};
+00074         this.lieu = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a375f1e6b0d3590706d863f6dbd86dd11}{lieu};
+00075         this.description = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4633baf86d38c201c7e288fda3604bd7}{description};
+00076         this.superficie = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3a5b9c42fa29930b092154e1bd0e4c10}{superficie};
+00077         this.temperature = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ad5349fa46af27855755ce6cee644a6e2}{temperature};
+00078         this.indiceDeConfort = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a6a75c9c45ccb98895e02a1864bf4a41d}{indiceDeConfort};
+00079         this.estReserve = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a8913c30ae6b72ae4f35962b1ecfc496b}{estReserve};
+00080     \}
+00081 
+\Hypertarget{_espace_de_travail_8java_source_l00082}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a24e21e44c3fc6ea5a8c68ab2cb1e22e3}{00082}     \textcolor{keyword}{public} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a24e21e44c3fc6ea5a8c68ab2cb1e22e3}{getAdresseIP}()
+00083     \{
+00084         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa4d9547d0170feeeb49c123e36226b79}{adresseIP};
+00085     \}
+00086 
+\Hypertarget{_espace_de_travail_8java_source_l00087}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae662e2674616a8548755cb64a38e0432}{00087}     \textcolor{keyword}{public} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae662e2674616a8548755cb64a38e0432}{getNom}()
+00088     \{
+00089         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9c06de6de73757cbec902e14055969ce}{nom};
+00090     \}
+00091 
+\Hypertarget{_espace_de_travail_8java_source_l00092}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_af320aa4ad7711ed52b3b5aef1bd52dd1}{00092}     \textcolor{keyword}{public} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_af320aa4ad7711ed52b3b5aef1bd52dd1}{getLieu}()
+00093     \{
+00094         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a375f1e6b0d3590706d863f6dbd86dd11}{lieu};
+00095     \}
+00096 
+\Hypertarget{_espace_de_travail_8java_source_l00097}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a815ecee3f01117f2d9b1d9441b214907}{00097}     \textcolor{keyword}{public} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a815ecee3f01117f2d9b1d9441b214907}{getDescription}()
+00098     \{
+00099         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4633baf86d38c201c7e288fda3604bd7}{description};
+00100     \}
+00101 
+\Hypertarget{_espace_de_travail_8java_source_l00102}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae2c734da9d454b368ddb056b1cdae499}{00102}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae2c734da9d454b368ddb056b1cdae499}{getSuperficie}()
+00103     \{
+00104         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a3a5b9c42fa29930b092154e1bd0e4c10}{superficie};
+00105     \}
+00106 
+\Hypertarget{_espace_de_travail_8java_source_l00107}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4c01c37fa6431d48c59274aaa00fdbe3}{00107}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a4c01c37fa6431d48c59274aaa00fdbe3}{getTemperature}()
+00108     \{
+00109         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ad5349fa46af27855755ce6cee644a6e2}{temperature};
+00110     \}
+00111 
+\Hypertarget{_espace_de_travail_8java_source_l00112}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9d7b3bd8aa78a10c70851b477d0f522d}{00112}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9d7b3bd8aa78a10c70851b477d0f522d}{getIndiceDeConfort}()
+00113     \{
+00114         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a6a75c9c45ccb98895e02a1864bf4a41d}{indiceDeConfort};
+00115     \}
+00116 
+\Hypertarget{_espace_de_travail_8java_source_l00117}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{00117}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}()
+00118     \{
+00119         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a8913c30ae6b72ae4f35962b1ecfc496b}{estReserve};
+00120     \}
+00121 
+\Hypertarget{_espace_de_travail_8java_source_l00122}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae6609cc6e5c42c0be7936ef3a3748bd0}{00122}     \textcolor{keyword}{private} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae6609cc6e5c42c0be7936ef3a3748bd0}{setEstReserve}(\textcolor{keywordtype}{boolean} estReserve)
+00123     \{
+00124         this.estReserve = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a8913c30ae6b72ae4f35962b1ecfc496b}{estReserve};
+00125     \}
+00126 
+\Hypertarget{_espace_de_travail_8java_source_l00130}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a42d483a68e6d0d50707dbd3dddd164c2}{00130}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a42d483a68e6d0d50707dbd3dddd164c2}{reserver}()
+00131     \{
+00132         Log.d(TAG, \textcolor{stringliteral}{"reserver()"});
+00133 
+00134         List<String> parametres = Arrays.asList(String.valueOf(\textcolor{keyword}{true}));
+00135         communication.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a82b49090e24d8296bfd26a14e0951ade}{fabriquerTrameModification}(
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{Communication}.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a39defd6718a8774ae75addf9f8f6f3cd}{MODIFICATION\_DISPONIBILITE}, parametres);
+00136 
+00137         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae6609cc6e5c42c0be7936ef3a3748bd0}{setEstReserve}(\textcolor{keyword}{true});
+00138 
+00139         Log.d(TAG, \textcolor{stringliteral}{"getEstReserve() "} + \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}());
+00140     \}
+00141 
+\Hypertarget{_espace_de_travail_8java_source_l00145}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_affce017a0a5ba338d7b0b7f6bbce6c68}{00145}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_affce017a0a5ba338d7b0b7f6bbce6c68}{liberer}()
+00146     \{
+00147         Log.d(TAG, \textcolor{stringliteral}{"liberer()"});
+00148 
+00149         List<String> parametres = Arrays.asList(String.valueOf(\textcolor{keyword}{false}));
+00150         communication.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a82b49090e24d8296bfd26a14e0951ade}{fabriquerTrameModification}(
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{Communication}.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a39defd6718a8774ae75addf9f8f6f3cd}{MODIFICATION\_DISPONIBILITE}, parametres);
+00151 
+00152         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae6609cc6e5c42c0be7936ef3a3748bd0}{setEstReserve}(\textcolor{keyword}{false});
+00153 
+00154         Log.d(TAG, \textcolor{stringliteral}{"getEstReserve() "} + \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}());
+00155     \}
+00156 
+\Hypertarget{_espace_de_travail_8java_source_l00161}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa922390b20b7b79bcde660290f378997}{00161}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aa922390b20b7b79bcde660290f378997}{decoderTrame}(String trame)
+00162     \{
+00170         trame = trame.replace(\textcolor{stringliteral}{"$"}, \textcolor{stringliteral}{""});
+00171         trame = trame.replace(\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"}, \textcolor{stringliteral}{""});
+00172         String[] champs = trame.split(\textcolor{stringliteral}{";"});
+00173 
+00174         this.nom = champs[\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a30fbba6ac01606498fbc123f1bbeaf14}{CHAMP\_NOM}];
+00175         this.description = champs[\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a9284e3c1fd38eae57b74ca814b285586}{CHAMP\_DESCRIPTION}];
+00176         this.lieu = champs[\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_aec533da6058aa1eea7c92e4f6e174f1a}{CHAMP\_LIEU}];
+00177         this.superficie = Integer.parseInt(champs[CHAMP\_SUPERFICIE]);
+00178         this.estReserve = Boolean.parseBoolean(champs[CHAMP\_DISPONIBILITE]);
+00179         this.temperature = Integer.parseInt(champs[CHAMP\_TEMPERATURE]);
+00180         this.indiceDeConfort = Integer.parseInt(champs[CHAMP\_INDICE\_DE\_CONFORT]);
+00181     \}
+00182 \}
+\end{DoxyCode}

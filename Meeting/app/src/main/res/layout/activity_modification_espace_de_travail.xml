@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModificationEspaceDeTravail">
+
+    <LinearLayout
+        android:id="@+id/layoutModificationEspaceDeTravail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layoutNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingTop="10sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/textViewNom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_nom"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editionNom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingTop="10sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_description"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editionDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingTop="10sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/textViewLieu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_lieu"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editionLieu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutSuperficie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingTop="10sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <TextView
+                android:id="@+id/textViewSuperficie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:text="@string/label_superficie"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editionSuperficie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="number"
+                android:text=""/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutBoutons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="50sp"
+            android:paddingTop="10sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/boutonEnregistrer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Enregistrer"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,82 @@
+\hypertarget{_espace_de_travail_adaptateur_8java_source}{}\subsection{Espace\+De\+Travail\+Adaptateur.\+java}
+\label{_espace_de_travail_adaptateur_8java_source}\index{Espace\+De\+Travail\+Adaptateur.\+java@{Espace\+De\+Travail\+Adaptateur.\+java}}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }com.lasalle.meeting;
+00002 
+00003 \textcolor{keyword}{import} android.content.Context;
+00004 \textcolor{keyword}{import} android.graphics.Color;
+00005 \textcolor{keyword}{import} android.util.Log;
+00006 \textcolor{keyword}{import} android.view.LayoutInflater;
+00007 \textcolor{keyword}{import} android.view.View;
+00008 \textcolor{keyword}{import} android.view.ViewGroup;
+00009 \textcolor{keyword}{import} android.widget.ArrayAdapter;
+00010 \textcolor{keyword}{import} android.widget.TextView;
+00011 
+00012 \textcolor{keyword}{import} java.util.Vector;
+00013 
+\Hypertarget{_espace_de_travail_adaptateur_8java_source_l00022}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur}{00022} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur}{EspaceDeTravailAdaptateur} \textcolor{keyword}{extends} ArrayAdapter<EspaceDeTravail>
+00023 \{
+\Hypertarget{_espace_de_travail_adaptateur_8java_source_l00024}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_a6d9fb5167546f9b1da395ca3ce3a577f}{00024}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_a6d9fb5167546f9b1da395ca3ce3a577f}{TAG} = \textcolor{stringliteral}{"\_EspaceDeTravailAdaptateur"};
+00025 
+\Hypertarget{_espace_de_travail_adaptateur_8java_source_l00026}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_a236d4cbea7b551e4faf638b578c1f980}{00026}     \textcolor{keyword}{public} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_a236d4cbea7b551e4faf638b578c1f980}{EspaceDeTravailAdaptateur}(Context context, \textcolor{keywordtype}{int} resource, 
+      Vector<EspaceDeTravail> espacesDeTravail)
+00027     \{
+00028         super(context, resource, espacesDeTravail);
+00029         Log.d(TAG, \textcolor{stringliteral}{"EspaceDeTravailAdaptateur()"});
+00030     \}
+00031 
+\Hypertarget{_espace_de_travail_adaptateur_8java_source_l00032}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_1_1_view_holder}{00032}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{class }\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_1_1_view_holder}{ViewHolder}
+00033     \{
+00034         TextView nomEspaceDeTravail;
+00035         TextView descriptionEspaceDeTravail;
+00036         TextView disponibiliteEspaceDeTravail;
+00037     \}
+00038 
+00039     @Override
+\Hypertarget{_espace_de_travail_adaptateur_8java_source_l00040}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_a288239cdb1a4e23274361c4a5dc503ba}{00040}     \textcolor{keyword}{public} View \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_a288239cdb1a4e23274361c4a5dc503ba}{getView}(\textcolor{keywordtype}{int} position, View view, ViewGroup parent)
+00041     \{
+00042         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{EspaceDeTravail} espaceDeTravail = null;
+00043         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_1_1_view_holder}{ViewHolder} viewHolder;
+00044 
+00045         \textcolor{keywordflow}{if} (view == null)
+00046         \{
+00047             viewHolder = \textcolor{keyword}{new} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_1_1_view_holder}{ViewHolder}();
+00048             LayoutInflater inflater = LayoutInflater.from(getContext());
+00049             view = inflater.inflate(R.layout.element\_espace\_travail, parent, \textcolor{keyword}{false});
+00050             viewHolder.nomEspaceDeTravail = (TextView)view.findViewById(R.id.nomEspaceDeTravail);
+00051             viewHolder.descriptionEspaceDeTravail = (TextView)view.findViewById(R.id.
+      descriptionEspaceDeTravail);
+00052             viewHolder.disponibiliteEspaceDeTravail = (TextView)view.findViewById(R.id.
+      disponibiliteEspaceDeTravail);
+00053             view.setTag(viewHolder);
+00054         \}
+00055         \textcolor{keywordflow}{else}
+00056         \{
+00057             viewHolder = (\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur_1_1_view_holder}{ViewHolder})view.getTag();
+00058         \}
+00059 
+00060         espaceDeTravail = getItem(position);
+00061         \textcolor{keywordflow}{if} (espaceDeTravail != null)
+00062         \{
+00063             \textcolor{comment}{//Log.d(TAG, "Nom : " + espaceDeTravail.getNom());}
+00064             viewHolder.nomEspaceDeTravail.setText(espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_ae662e2674616a8548755cb64a38e0432}{getNom}());
+00065             viewHolder.descriptionEspaceDeTravail.setText(espaceDeTravail.
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a815ecee3f01117f2d9b1d9441b214907}{getDescription}());
+00066             \textcolor{keywordflow}{if}(!espaceDeTravail.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_a69fe30f8d3aff92986f4c39402e16ab0}{getEstReserve}())
+00067             \{
+00068                 viewHolder.disponibiliteEspaceDeTravail.setText(\textcolor{stringliteral}{"Libre"});
+00069                 viewHolder.disponibiliteEspaceDeTravail.setTextColor(Color.parseColor(\textcolor{stringliteral}{"#00FF00"})); \textcolor{comment}{//
+       Color.rgb(0,255,0)}
+00070             \}
+00071             \textcolor{keywordflow}{else}
+00072             \{
+00073                 viewHolder.disponibiliteEspaceDeTravail.setText(\textcolor{stringliteral}{"Occupé"});
+00074                 viewHolder.disponibiliteEspaceDeTravail.setTextColor(Color.rgb(255,0,0));
+00075             \}
+00076         \}
+00077 
+00078         \textcolor{keywordflow}{return} view;
+00079     \}
+00080 \}
+\end{DoxyCode}

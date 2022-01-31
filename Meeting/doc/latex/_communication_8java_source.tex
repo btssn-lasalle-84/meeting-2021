@@ -1,0 +1,262 @@
+\hypertarget{_communication_8java_source}{}\subsection{Communication.\+java}
+\label{_communication_8java_source}\index{Communication.\+java@{Communication.\+java}}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{package }com.lasalle.meeting;
+00002 
+00003 \textcolor{keyword}{import} android.os.Bundle;
+00004 \textcolor{keyword}{import} android.os.Handler;
+00005 \textcolor{keyword}{import} android.os.Message;
+00006 \textcolor{keyword}{import} android.util.Log;
+00007 
+00008 \textcolor{keyword}{import} java.io.IOException;
+00009 \textcolor{keyword}{import} java.net.DatagramPacket;
+00010 \textcolor{keyword}{import} java.net.DatagramSocket;
+00011 \textcolor{keyword}{import} java.net.InetAddress;
+00012 \textcolor{keyword}{import} java.net.UnknownHostException;
+00013 \textcolor{keyword}{import} java.util.List;
+00014 \textcolor{keyword}{import} java.util.concurrent.LinkedBlockingQueue;
+00015 \textcolor{keyword}{import} java.util.concurrent.locks.ReentrantLock;
+00016 
+\Hypertarget{_communication_8java_source_l00029}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{00029} \textcolor{keyword}{public} \textcolor{keyword}{class }\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{Communication} \textcolor{keyword}{implements} \hyperlink{class_runnable}{Runnable}
+00030 \{
+\Hypertarget{_communication_8java_source_l00034}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a5d58f88df1f20b4d61edbed9a82eccab}{00034}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a5d58f88df1f20b4d61edbed9a82eccab}{TAG} = \textcolor{stringliteral}{"\_Communication"};
+00035 
+\Hypertarget{_communication_8java_source_l00039}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a46e5fbc8ec97ad651d544e09121a6468}{00039}     \textcolor{keyword}{private} InetAddress \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a46e5fbc8ec97ad651d544e09121a6468}{adresseIP} = null;
+\Hypertarget{_communication_8java_source_l00040}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6a2d2e62f87bef261a1999eb5acf8abb}{00040}     \textcolor{keyword}{public} \textcolor{keyword}{final} \textcolor{keyword}{static} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6a2d2e62f87bef261a1999eb5acf8abb}{adresseMulticast} = \textcolor{stringliteral}{"239.0.0.42"};    
+\Hypertarget{_communication_8java_source_l00041}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_abf48fd6a29d87d67f4941494404f1ea7}{00041}     \textcolor{keyword}{private} \textcolor{keyword}{final} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_abf48fd6a29d87d67f4941494404f1ea7}{PORT} = 5000;                           
+\Hypertarget{_communication_8java_source_l00042}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a4997d801f57344fb4eea7924903c2d6c}{00042}     \textcolor{keyword}{public} \textcolor{keyword}{final} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a4997d801f57344fb4eea7924903c2d6c}{TYPE\_RECEPTION} = 1;                     
+\Hypertarget{_communication_8java_source_l00043}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af123afba8dcddc259017fb5c3b431dab}{00043}     \textcolor{keyword}{private} \textcolor{keyword}{final} ReentrantLock \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af123afba8dcddc259017fb5c3b431dab}{mutex} = \textcolor{keyword}{new} ReentrantLock();
+\Hypertarget{_communication_8java_source_l00044}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a2a538f36640aecebbb833bbaf1f03858}{00044}     \textcolor{keyword}{private} DatagramSocket \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a2a538f36640aecebbb833bbaf1f03858}{socket} = null;
+\Hypertarget{_communication_8java_source_l00045}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a733017de1be51e6e6ebf6719009ede30}{00045}     \textcolor{keyword}{private} LinkedBlockingQueue<DatagramPacket> \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a733017de1be51e6e6ebf6719009ede30}{queueEmission};
+\Hypertarget{_communication_8java_source_l00046}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a05fa5f360f28819a9e106e0265a74643}{00046}     \textcolor{keyword}{private} Handler \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a05fa5f360f28819a9e106e0265a74643}{handler};                        
+00047 
+\Hypertarget{_communication_8java_source_l00051}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6560c39bb7ebc968e007e4dd98ec296c}{00051}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6560c39bb7ebc968e007e4dd98ec296c}{DELIMITEUR\_EN\_TETE} = \textcolor{stringliteral}{"$"};
+\Hypertarget{_communication_8java_source_l00052}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_aeff38852b1f770d9a13cd5bf02090bb1}{00052}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_aeff38852b1f770d9a13cd5bf02090bb1}{DELIMITEUR\_CHAMP} = \textcolor{stringliteral}{";"};
+\Hypertarget{_communication_8java_source_l00053}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6f2e7cb2145496069cdf1b33d017be58}{00053}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6f2e7cb2145496069cdf1b33d017be58}{DELIMITEUR\_FIN} = \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"};
+\Hypertarget{_communication_8java_source_l00054}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a9a0b852b1753e97242edaba93f63a4d6}{00054}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a9a0b852b1753e97242edaba93f63a4d6}{DEMANDE\_INFORMATIONS} = 1;
+\Hypertarget{_communication_8java_source_l00055}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_acb13915d9514b99c3b9bc99358e42db6}{00055}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_acb13915d9514b99c3b9bc99358e42db6}{DEMANDE\_ETAT} = 2;
+\Hypertarget{_communication_8java_source_l00056}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a518dd253a20818a8bbc672ffcd93aeb7}{00056}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a518dd253a20818a8bbc672ffcd93aeb7}{DEMANDE\_DISPONIBILITE} = 3;
+\Hypertarget{_communication_8java_source_l00057}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_ad982608d86bb6b724bf9289592b7945b}{00057}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_ad982608d86bb6b724bf9289592b7945b}{MODIFICATION\_INFORMATIONS} = 1;
+\Hypertarget{_communication_8java_source_l00058}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a39defd6718a8774ae75addf9f8f6f3cd}{00058}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a39defd6718a8774ae75addf9f8f6f3cd}{MODIFICATION\_DISPONIBILITE} = 3;
+\Hypertarget{_communication_8java_source_l00059}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af9211740f83da963f0c4ea84b84f0669}{00059}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af9211740f83da963f0c4ea84b84f0669}{NB\_CHAMPS\_INFORMATIONS} = 4;
+\Hypertarget{_communication_8java_source_l00060}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a9c88b5b4215e040b3928f6c01914bfa7}{00060}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a9c88b5b4215e040b3928f6c01914bfa7}{NB\_CHAMPS\_DISPONIBILITE} = 1;
+\Hypertarget{_communication_8java_source_l00061}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a8e064e494a3d43ced5aefb524701bc22}{00061}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a8e064e494a3d43ced5aefb524701bc22}{CHAMP\_NOM} = 0;
+\Hypertarget{_communication_8java_source_l00062}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_ab1b74caade66cc37a1180d3f10383db8}{00062}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_ab1b74caade66cc37a1180d3f10383db8}{CHAMP\_DESCRIPTION} = 1;
+\Hypertarget{_communication_8java_source_l00063}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6f8e3d2386521c64c50eaa037083be79}{00063}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6f8e3d2386521c64c50eaa037083be79}{CHAMP\_LIEU} = 2;
+\Hypertarget{_communication_8java_source_l00064}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6f16e8be300ba2c9b2d3973f8da79942}{00064}     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{int} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a6f16e8be300ba2c9b2d3973f8da79942}{CHAMP\_SUPERFICIE} = 3;
+00065 
+\Hypertarget{_communication_8java_source_l00070}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a3d73554b2774d3274ad385b0faa27d14}{00070}     \textcolor{keyword}{public} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a3d73554b2774d3274ad385b0faa27d14}{Communication}(Handler handler)
+00071     \{
+00072         this.handler = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a05fa5f360f28819a9e106e0265a74643}{handler};
+00073 
+00074         \textcolor{keywordflow}{try}
+00075         \{
+00076             socket = \textcolor{keyword}{new} DatagramSocket(PORT);
+00077             Log.d(TAG, \textcolor{stringliteral}{"Création de la socket UDP sur le port "} + PORT);
+00078         \}
+00079         \textcolor{keywordflow}{catch}(Exception e)
+00080         \{
+00081             e.printStackTrace();
+00082         \}
+00083 
+00084         queueEmission = \textcolor{keyword}{new} LinkedBlockingQueue<DatagramPacket>();
+00085     \}
+00086 
+\Hypertarget{_communication_8java_source_l00090}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a03f0e419513d7f33900dde412e2a4471}{00090}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a03f0e419513d7f33900dde412e2a4471}{envoyer}(String trame, String adressePortier)
+00091     \{
+00092         \textcolor{keywordflow}{if}(socket == null || socket.isClosed())
+00093             \textcolor{keywordflow}{return};
+00094 
+00095         \textcolor{keyword}{final} InetAddress adresseIPDistante;
+00096         \textcolor{keywordflow}{try}
+00097         \{
+00098             adresseIPDistante = InetAddress.getByName(adressePortier);
+00099         \}
+00100         \textcolor{keywordflow}{catch} (UnknownHostException e)
+00101         \{
+00102             e.printStackTrace();
+00103             \textcolor{keywordflow}{return};
+00104         \}
+00105 
+00106         \textcolor{comment}{// Crée et démarre un thread pour envoyer la trame}
+00107         \textcolor{keyword}{new} Thread()
+00108         \{
+00109             @Override \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_afe29bde1b4538990bd0a8c9b2d512efa}{run}()
+00110             \{
+00111                 byte[] emission = \textcolor{keyword}{new} byte[1024];
+00112 
+00113                 \textcolor{keywordflow}{try}
+00114                 \{
+00115                     emission = trame.getBytes();
+00116                     DatagramPacket paquetRetour = \textcolor{keyword}{new} DatagramPacket(emission, emission.length, 
+      adresseIPDistante, PORT);
+00117                     socket.send(paquetRetour);
+00118                     Log.d(TAG, \textcolor{stringliteral}{"envoyer()"} + trame);
+00119                 \}
+00120                 \textcolor{keywordflow}{catch} (IOException e)
+00121                 \{
+00122                     e.printStackTrace();
+00123                     Log.d(TAG, \textcolor{stringliteral}{"Erreur émission !"});
+00124                 \}
+00125             \}
+00126         \}.start();
+00127     \}
+00128 
+\Hypertarget{_communication_8java_source_l00132}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a0344b79faa04dded3468fb8dda6baa81}{00132}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a0344b79faa04dded3468fb8dda6baa81}{recevoir}()
+00133     \{
+00134         byte[] reception = \textcolor{keyword}{new} byte[1024];
+00135 
+00136         \textcolor{keywordflow}{while} (socket != null && !socket.isClosed())
+00137         \{
+00138             \textcolor{keywordflow}{try}
+00139             \{
+00140                 \textcolor{keyword}{final} DatagramPacket paquetRecu = \textcolor{keyword}{new} DatagramPacket(reception, reception.length);
+00141                 socket.receive(paquetRecu);
+00142                 \textcolor{keyword}{final} String donnees = \textcolor{keyword}{new} String(paquetRecu.getData(), paquetRecu.getOffset(), paquetRecu.
+      getLength());
+00143                 Log.d(TAG, \textcolor{stringliteral}{"Réception ["} + paquetRecu.getAddress().getHostAddress() + \textcolor{stringliteral}{":"} + paquetRecu.
+      getPort() + \textcolor{stringliteral}{"] -> "} + donnees);
+00144 
+00145                 \textcolor{keywordflow}{if}(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af3090814ffb2fc9537961be52ebd17c2}{verifierTrame}(donnees))
+00146                 \{
+00147                     \textcolor{comment}{// Envoie les données reçues à l'activité}
+00148                     \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a7fa206969cf5dc48f4660845bbff0fc1}{envoyerMessage}(TYPE\_RECEPTION, paquetRecu.getAddress().getHostAddress(), 
+      paquetRecu.getPort(), donnees);
+00149                 \}
+00150             \}
+00151             \textcolor{keywordflow}{catch} (Exception e)
+00152             \{
+00153                 e.printStackTrace();
+00154                 Log.d(TAG, \textcolor{stringliteral}{"Erreur réception !"});
+00155             \}
+00156         \}
+00157 
+00158         Log.d(TAG, \textcolor{stringliteral}{"recevoir()"});
+00159     \}
+00160 
+\Hypertarget{_communication_8java_source_l00161}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a7fa206969cf5dc48f4660845bbff0fc1}{00161}     \textcolor{keyword}{private} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a7fa206969cf5dc48f4660845bbff0fc1}{envoyerMessage}(\textcolor{keywordtype}{int} type, String adresse, \textcolor{keywordtype}{int} port, String donnees)
+00162     \{
+00163         Message msg = Message.obtain();
+00164         msg.what = type;
+00165         Bundle b = \textcolor{keyword}{new} Bundle();
+00166         b.putString(\textcolor{stringliteral}{"adresseIP"}, adresse);
+00167         b.putInt(\textcolor{stringliteral}{"port"}, port);
+00168         b.putString(\textcolor{stringliteral}{"donnees"}, donnees);
+00169         msg.setData(b);
+00170         mutex.lock();
+00171         handler.sendMessage(msg);
+00172         mutex.unlock();
+00173     \}
+00174 
+\Hypertarget{_communication_8java_source_l00180}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a3b07023cb3f3a1549da711b5c6ba6af1}{00180}     \textcolor{keyword}{public} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a3b07023cb3f3a1549da711b5c6ba6af1}{fabriquerTrameDemande}(\textcolor{keywordtype}{int} typeTrame)
+00181     \{
+00182         \textcolor{comment}{/*}
+00183 \textcolor{comment}{         * Protocole}
+00184 \textcolor{comment}{         *}
+00185 \textcolor{comment}{         * Demande informations du portier :}
+00186 \textcolor{comment}{         * $GET;1\(\backslash\)r\(\backslash\)n}
+00187 \textcolor{comment}{         *}
+00188 \textcolor{comment}{         * Demande état du portier :}
+00189 \textcolor{comment}{         * $GET;2\(\backslash\)r\(\backslash\)n}
+00190 \textcolor{comment}{         *}
+00191 \textcolor{comment}{         * Demande disponibilité du portier :}
+00192 \textcolor{comment}{         * $GET;3\(\backslash\)r\(\backslash\)n}
+00193 \textcolor{comment}{         *}
+00194 \textcolor{comment}{         */}
+00195 
+00196         String trame = null;
+00197         Log.d(TAG, \textcolor{stringliteral}{"fabriquerTrameDemande() type = "} + typeTrame);
+00198 
+00199         \textcolor{keywordflow}{switch}(typeTrame)
+00200         \{
+00201             \textcolor{keywordflow}{case} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a9a0b852b1753e97242edaba93f63a4d6}{DEMANDE\_INFORMATIONS}:
+00202                 trame = \textcolor{stringliteral}{"$GET;1\(\backslash\)r\(\backslash\)n"};
+00203                 \textcolor{keywordflow}{break};
+00204             \textcolor{keywordflow}{case} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_acb13915d9514b99c3b9bc99358e42db6}{DEMANDE\_ETAT}:
+00205                 trame = \textcolor{stringliteral}{"$GET;2\(\backslash\)r\(\backslash\)n"};
+00206                 \textcolor{keywordflow}{break};
+00207             \textcolor{keywordflow}{case} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a518dd253a20818a8bbc672ffcd93aeb7}{DEMANDE\_DISPONIBILITE}:
+00208                 trame = \textcolor{stringliteral}{"$GET;3\(\backslash\)r\(\backslash\)n"};
+00209                 \textcolor{keywordflow}{break};
+00210             \textcolor{keywordflow}{default}:
+00211                 Log.d(TAG, \textcolor{stringliteral}{"fabriquerTrameDemande() : type de trame inconnu !"});
+00212         \}
+00213 
+00214         \textcolor{keywordflow}{return} trame;
+00215     \}
+00216 
+\Hypertarget{_communication_8java_source_l00222}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a82b49090e24d8296bfd26a14e0951ade}{00222}     \textcolor{keyword}{public} String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a82b49090e24d8296bfd26a14e0951ade}{fabriquerTrameModification}(\textcolor{keywordtype}{int} typeTrame, List<String> 
+      parametres)
+00223     \{
+00224         \textcolor{comment}{/*}
+00225 \textcolor{comment}{         * Protocole}
+00226 \textcolor{comment}{         *}
+00227 \textcolor{comment}{         * Actualiser les informations d’un portier :}
+00228 \textcolor{comment}{         * $SET;1;nomSalle;description;emplacement;surface\(\backslash\)r\(\backslash\)n}
+00229 \textcolor{comment}{         *}
+00230 \textcolor{comment}{         * Actualiser la disponibilité d’un portier :}
+00231 \textcolor{comment}{         * $SET;3;disponibilité\(\backslash\)r\(\backslash\)n}
+00232 \textcolor{comment}{         *}
+00233 \textcolor{comment}{         * Exemple d'utilisation :}
+00234 \textcolor{comment}{         *   List<String> parametres = Arrays.asList("B11", "Salle de cours", "Batiment BTS", "25");}
+00235 \textcolor{comment}{         *   String trame =
+       communication.fabriquerTrameModification(Communication.MODIFICATION\_INFORMATIONS, parametres);}
+00236 \textcolor{comment}{         */}
+00237 
+00238         \textcolor{comment}{// Vérifications}
+00239         \textcolor{keywordflow}{if}(parametres == null)
+00240             \textcolor{keywordflow}{return} null;
+00241 
+00242         \textcolor{keywordflow}{if}(parametres.size() != NB\_CHAMPS\_INFORMATIONS && parametres.size() != 
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a9c88b5b4215e040b3928f6c01914bfa7}{NB\_CHAMPS\_DISPONIBILITE})
+00243             \textcolor{keywordflow}{return} null;
+00244 
+00245         String trame = null;
+00246         Log.d(TAG, \textcolor{stringliteral}{"fabriquerTrameModification() type = "} + typeTrame);
+00247         Log.d(TAG, \textcolor{stringliteral}{"fabriquerTrameModification() Nb parametres = "} + parametres.size());
+00248         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<parametres.size();++i)
+00249         \{
+00250             Log.d(TAG, \textcolor{stringliteral}{"fabriquerTrameModification() parametres["} + i + \textcolor{stringliteral}{"] = "} + parametres.get(i));
+00251         \}
+00252 
+00253         \textcolor{keywordflow}{switch}(typeTrame)
+00254         \{
+00255             \textcolor{keywordflow}{case} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_ad982608d86bb6b724bf9289592b7945b}{MODIFICATION\_INFORMATIONS}:
+00256                 trame = \textcolor{stringliteral}{"$SET;1"} + parametres.get(CHAMP\_NOM) + \textcolor{stringliteral}{";"} + parametres.get(CHAMP\_DESCRIPTION) + \textcolor{stringliteral}{";
+      "} + parametres.get(CHAMP\_LIEU) + \textcolor{stringliteral}{";"} + parametres.get(CHAMP\_SUPERFICIE) + \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"};
+00257                 \textcolor{keywordflow}{break};
+00258 
+00259             \textcolor{keywordflow}{case} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a39defd6718a8774ae75addf9f8f6f3cd}{MODIFICATION\_DISPONIBILITE}:
+00260                 trame = \textcolor{stringliteral}{"SET;3;"} + parametres.get(0) + \textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"};
+00261                 \textcolor{keywordflow}{break};
+00262 
+00263             \textcolor{keywordflow}{default}:
+00264                 Log.d(TAG, \textcolor{stringliteral}{"fabriquerTrameActualisation() : type de trame inconnu !"});
+00265         \}
+00266 
+00267         \textcolor{keywordflow}{return} trame;
+00268     \}
+00269 
+\Hypertarget{_communication_8java_source_l00273}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af3090814ffb2fc9537961be52ebd17c2}{00273}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_af3090814ffb2fc9537961be52ebd17c2}{verifierTrame}(String trame)
+00274     \{
+00275         Log.d(TAG, \textcolor{stringliteral}{"verifierTrame()"});
+00276 
+00277         \textcolor{keywordflow}{return} (trame.startsWith(DELIMITEUR\_EN\_TETE) && trame.endsWith(DELIMITEUR\_FIN));
+00278     \}
+00279 
+\Hypertarget{_communication_8java_source_l00284}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_abf23e6b879122267b3fe10233b4010a8}{00284}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_abf23e6b879122267b3fe10233b4010a8}{arreter}()
+00285     \{
+00286         \textcolor{keywordflow}{if}(socket == null)
+00287             \textcolor{keywordflow}{return};
+00288         socket.close();
+00289     \}
+00290 
+00295     @Override
+\Hypertarget{_communication_8java_source_l00296}\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_afe29bde1b4538990bd0a8c9b2d512efa}{00296}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_afe29bde1b4538990bd0a8c9b2d512efa}{run}()
+00297     \{
+00298         Log.d(TAG, \textcolor{stringliteral}{"Démarre le thread réception"});
+00299         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a0344b79faa04dded3468fb8dda6baa81}{recevoir}();
+00300     \}
+00301 \}
+\end{DoxyCode}

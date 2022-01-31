@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.lasalle.meeting.IHMMeeting">
+    <item
+        android:id="@+id/actionAfficherTous"
+        android:orderInCategory="100"
+        android:title="Tous les espaces"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actionAfficherFavoris"
+        android:orderInCategory="100"
+        android:title="Favoris"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actionRechercher"
+        android:orderInCategory="100"
+        android:title="Rechercher"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actionFiltrerParDisponibilite"
+        android:orderInCategory="100"
+        android:title="Filtrer par disponibilité"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actionFiltrerParNiveauDeConfort"
+        android:orderInCategory="100"
+        android:title="Filtrer par niveau de confort"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actionAPropos"
+        android:orderInCategory="100"
+        android:title="À propos"
+        app:showAsAction="never" />
+</menu>

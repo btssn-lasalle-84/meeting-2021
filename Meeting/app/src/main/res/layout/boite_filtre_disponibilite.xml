@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layoutBoiteFiltreDisponibilite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/filtreDisponibilite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/boutonRadioLibre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Libre"
+                android:onClick="onRadioButtonClicked" />
+
+            <RadioButton
+                android:id="@+id/boutonRadioOccupe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Occupé"
+                android:onClick="onRadioButtonClicked" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

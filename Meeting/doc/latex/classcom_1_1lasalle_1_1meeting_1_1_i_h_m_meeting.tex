@@ -1,0 +1,764 @@
+\hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting}{}\subsection{Référence de la classe com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting}
+\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting}\index{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting@{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting}}
+
+
+L\textquotesingle{}activité principale de l\textquotesingle{}application Meeting.  
+
+
+
+
+Graphe de collaboration de com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static Vector$<$ \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail} $>$ \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_aad942bca6cb6117dc57fb58142f0728c}{get\+Espaces\+De\+Travail} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_aa7f5623eef9a049cf786ff15a4c63274}{on\+Activity\+Result} (int request\+Code, int result\+Code, Intent data)
+\begin{DoxyCompactList}\small\item\em Traite le retour de l\textquotesingle{}activité d\textquotesingle{}affichage d\textquotesingle{}un espace de travail. \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a34012ee88c1e079fef93ed115978d669}{on\+Create} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Méthode appelée à la création de l\textquotesingle{}activité \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a949a2219b9b5c29f7c1a9855a782a676}{on\+Destroy} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelée à la destruction de l\textquotesingle{}application (après \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}{on\+Stop()} et détruite par le système Android) \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1663a4b9bcff059ab95a72ca019cffb1}{on\+Pause} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelée après qu\textquotesingle{}une boîte de dialogue s\textquotesingle{}est affichée (on reprend sur un \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af9a99a4aa01c58f7d85e0d6e6d13eaa4}{on\+Resume()}) ou avant \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}{on\+Stop()} (activité plus visible) \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af9a99a4aa01c58f7d85e0d6e6d13eaa4}{on\+Resume} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelée après \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a55bd9ed1bd85ada8c53930fb1650a954}{on\+Start()} ou après \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1663a4b9bcff059ab95a72ca019cffb1}{on\+Pause()} \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a55bd9ed1bd85ada8c53930fb1650a954}{on\+Start} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelée au démarrage de l\textquotesingle{}activité Main\+Activity. \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}{on\+Stop} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelée lorsque l\textquotesingle{}activité n\textquotesingle{}est plus visible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad9ff630d7dc8df0155e3a552bfdfed75}{ajouter\+Espace\+De\+Travail} (\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail} espace\+De\+Travail)
+\begin{DoxyCompactList}\small\item\em Ajoute un espace de travail si pas encore détecté \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ab9ef4bd3436aa480f92a5b1922fd6666}{demarrer\+Reseau} ()
+\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad4660f416b16b6df0f96d58f4c36b6f6}{initialiser\+Espaces\+De\+Travail} ()
+\begin{DoxyCompactList}\small\item\em Crée les espaces de travail détectés. \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a6624feade3dc156bc7eb40f79cb47267}{initialiser\+Liste\+Espaces\+De\+Travail} ()
+\begin{DoxyCompactList}\small\item\em Initialise la vue pour les espaces de travail. \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a3367c0a9b9743ca7808cb2265789f9b8}{modifier\+Espace\+De\+Travail} (\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail} espace\+De\+Travail)
+\begin{DoxyCompactList}\small\item\em Modifie un espace de travail si déjà détecté \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1418ee16ded8b09f4c4a9c1a9359163a}{supprimer\+Espace\+De\+Travail} (\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail} espace\+De\+Travail)
+\begin{DoxyCompactList}\small\item\em Supprime un espace de travail si déjà détecté \end{DoxyCompactList}\item 
+int \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a402dc23f375fae1f1faa3d5728cdad00}{verifier\+Presence\+Espace\+De\+Travail} (\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail} espace\+De\+Travail)
+\begin{DoxyCompactList}\small\item\em Vérifie la présence d\textquotesingle{}un espace de travail dans le conteneur des espaces de travail détectés. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur}{Espace\+De\+Travail\+Adaptateur} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur}
+\begin{DoxyCompactList}\small\item\em Adaptateur pour les espaces de travail. \end{DoxyCompactList}\item 
+Handler \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af0a341dd3f520bba9d94b4b083ff75af}{handler}
+\begin{DoxyCompactList}\small\item\em permet de récuperer les trames \end{DoxyCompactList}\item 
+List\+View \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ae32ea3420cbe17af0b32df447e326427}{liste\+Espaces\+De\+Travail}
+\begin{DoxyCompactList}\small\item\em Affichage des espaces de travail sous forme de liste. \end{DoxyCompactList}\item 
+Swipe\+Refresh\+Layout \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a64f84fda5f7f595cf0c75ccfb189af8d}{swipe\+Refresh\+Layout}
+\begin{DoxyCompactList}\small\item\em pour le Pull To Refresh \end{DoxyCompactList}\item 
+Wifi\+Manager \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acdbac7f6ea8e7a8ed99e0ceaaf0f9f97}{wm} = null
+\begin{DoxyCompactList}\small\item\em attribut permettant de voir la connection au Wi\+Fi \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{Communication} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}{communication} = null
+\begin{DoxyCompactList}\small\item\em attribut permettant d\textquotesingle{}envoyer des requêtes \end{DoxyCompactList}\item 
+static Vector$<$ \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail} $>$ \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espaces\+De\+Travail}
+\begin{DoxyCompactList}\small\item\em Conteneur pour les espaces de travail. \end{DoxyCompactList}\item 
+static final String \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{T\+AG} = \char`\"{}\+\_\+\+I\+H\+M\+Meeting\char`\"{}
+\begin{DoxyCompactList}\small\item\em T\+AG pour les logs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+L\textquotesingle{}activité principale de l\textquotesingle{}application Meeting. 
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00035}{35} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad9ff630d7dc8df0155e3a552bfdfed75}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad9ff630d7dc8df0155e3a552bfdfed75}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!ajouter\+Espace\+De\+Travail@{ajouter\+Espace\+De\+Travail}}
+\index{ajouter\+Espace\+De\+Travail@{ajouter\+Espace\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{ajouter\+Espace\+De\+Travail()}{ajouterEspaceDeTravail()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+ajouter\+Espace\+De\+Travail (\begin{DoxyParamCaption}\item[{\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail}}]{espace\+De\+Travail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ajoute un espace de travail si pas encore détecté 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em espace\+De\+Travail} & un espace de travail \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00199}{199} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00248}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+verifier\+Presence\+Espace\+De\+Travail()}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00171}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Espaces\+De\+Travail()}.
+
+
+\begin{DoxyCode}
+00200     \{
+00201         \textcolor{keywordtype}{int} position = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a402dc23f375fae1f1faa3d5728cdad00}{verifierPresenceEspaceDeTravail}(espaceDeTravail);
+00202 
+00203         \textcolor{keywordflow}{if}(position == -1)
+00204         \{
+00205             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.add(espaceDeTravail);
+00206             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur}.notifyDataSetChanged();
+00207         \}
+00208     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ab9ef4bd3436aa480f92a5b1922fd6666}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ab9ef4bd3436aa480f92a5b1922fd6666}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!demarrer\+Reseau@{demarrer\+Reseau}}
+\index{demarrer\+Reseau@{demarrer\+Reseau}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{demarrer\+Reseau()}{demarrerReseau()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+demarrer\+Reseau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00082}{82} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_communication_8java_source_l00040}{com.\+lasalle.\+meeting.\+Communication.\+adresse\+Multicast}, \hyperlink{_communication_8java_source_l00055}{com.\+lasalle.\+meeting.\+Communication.\+D\+E\+M\+A\+N\+D\+E\+\_\+\+E\+T\+AT}, \hyperlink{_communication_8java_source_l00090}{com.\+lasalle.\+meeting.\+Communication.\+envoyer()}, \hyperlink{_communication_8java_source_l00180}{com.\+lasalle.\+meeting.\+Communication.\+fabriquer\+Trame\+Demande()}, et \hyperlink{_i_h_m_meeting_8java_source_l00311}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+handler}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00060}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Create()}.
+
+
+\begin{DoxyCode}
+00083     \{
+00084         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acdbac7f6ea8e7a8ed99e0ceaaf0f9f97}{wm} = (WifiManager) getApplicationContext().getSystemService(Context.WIFI\_SERVICE);
+00085         \textcolor{keywordflow}{if} (!\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acdbac7f6ea8e7a8ed99e0ceaaf0f9f97}{wm}.isWifiEnabled())
+00086         \{
+00087             Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"WiFi indisponible !"});
+00088             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acdbac7f6ea8e7a8ed99e0ceaaf0f9f97}{wm}.setWifiEnabled(\textcolor{keyword}{true});
+00089         \}
+00090         \textcolor{keywordflow}{else}
+00091         \{
+00092             Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"WiFi disponible"});
+00093         \}
+00094 
+00095         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}{communication} = \textcolor{keyword}{new} Communication(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af0a341dd3f520bba9d94b4b083ff75af}{handler});
+00096 
+00097         \textcolor{comment}{// Démarre la réception des trames des portiers}
+00098         Thread tCommunicationUDP = \textcolor{keyword}{new} Thread(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}{communication}, \textcolor{stringliteral}{"Communication"});
+00099         tCommunicationUDP.start(); \textcolor{comment}{// execute la méthode run()}
+00100 
+00101         \textcolor{comment}{// Test}
+00102         \textcolor{keywordflow}{if}(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}{communication} != null)
+00103         \{
+00104             \textcolor{comment}{// demande l'état des portiers joignables}
+00105             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}{communication}.\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a03f0e419513d7f33900dde412e2a4471}{envoyer}(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}{communication}.
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication_a3b07023cb3f3a1549da711b5c6ba6af1}{fabriquerTrameDemande}(Communication.DEMANDE\_ETAT), Communication.adresseMulticast); \textcolor{comment}{//
+       voir protocole}
+00106         \}
+00107     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_aad942bca6cb6117dc57fb58142f0728c}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_aad942bca6cb6117dc57fb58142f0728c}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!get\+Espaces\+De\+Travail@{get\+Espaces\+De\+Travail}}
+\index{get\+Espaces\+De\+Travail@{get\+Espaces\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{get\+Espaces\+De\+Travail()}{getEspacesDeTravail()}}
+{\footnotesize\ttfamily static Vector$<$\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail}$>$ com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+get\+Espaces\+De\+Travail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00163}{163} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00051}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+espaces\+De\+Travail}.
+
+
+\begin{DoxyCode}
+00164     \{
+00165         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail};
+00166     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad4660f416b16b6df0f96d58f4c36b6f6}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad4660f416b16b6df0f96d58f4c36b6f6}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!initialiser\+Espaces\+De\+Travail@{initialiser\+Espaces\+De\+Travail}}
+\index{initialiser\+Espaces\+De\+Travail@{initialiser\+Espaces\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{initialiser\+Espaces\+De\+Travail()}{initialiserEspacesDeTravail()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Espaces\+De\+Travail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Crée les espaces de travail détectés. 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00171}{171} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00199}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+ajouter\+Espace\+De\+Travail()}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00263}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Liste\+Espaces\+De\+Travail()}, \hyperlink{_i_h_m_meeting_8java_source_l00060}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Create()}, et \hyperlink{_i_h_m_meeting_8java_source_l00114}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Start()}.
+
+
+\begin{DoxyCode}
+00172     \{
+00173         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"initialiserEspacesDeTravail()"});
+00174 
+00175         \textcolor{comment}{// Pour les tests}
+00176         List<EspaceDeTravail> tous = Arrays.asList(
+00177                 \textcolor{keyword}{new} EspaceDeTravail(\textcolor{stringliteral}{""}, \textcolor{stringliteral}{"B11"}, \textcolor{stringliteral}{"Bâtiment BTS"}, \textcolor{stringliteral}{"Salle de cours SN"}, 25, 20, 1, \textcolor{keyword}{false}),
+00178                 \textcolor{keyword}{new} EspaceDeTravail( \textcolor{stringliteral}{""}, \textcolor{stringliteral}{"B20"}, \textcolor{stringliteral}{"Bâtiment BTS"}, \textcolor{stringliteral}{"Atelier"}, 100, 24, 1, \textcolor{keyword}{false}),
+00179                 \textcolor{keyword}{new} EspaceDeTravail( \textcolor{stringliteral}{""}, \textcolor{stringliteral}{"B21"}, \textcolor{stringliteral}{"Bâtiment BTS"}, \textcolor{stringliteral}{"Salle de physique"}, 60, 22, 1, \textcolor{keyword}{false}),
+00180                 \textcolor{keyword}{new} EspaceDeTravail( \textcolor{stringliteral}{""}, \textcolor{stringliteral}{"B22"}, \textcolor{stringliteral}{"Bâtiment BTS"}, \textcolor{stringliteral}{"Salle de cours"}, 60, 22, 1, \textcolor{keyword}{false})
+00181         );
+00182         \textcolor{comment}{//final int nbEspacesDeTravail = tous.size();}
+00183         \textcolor{keyword}{final} \textcolor{keywordtype}{int} nbEspacesDeTravail = \textcolor{keyword}{new} Random().nextInt(tous.size());
+00184         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"nbEspacesDeTravail = "} + nbEspacesDeTravail);
+00185 
+00186         \textcolor{comment}{//espacesDeTravail.clear();}
+00187         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i < nbEspacesDeTravail; i++)
+00188         \{
+00189             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad9ff630d7dc8df0155e3a552bfdfed75}{ajouterEspaceDeTravail}(tous.get(i));
+00190         \}
+00191 
+00192         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a64f84fda5f7f595cf0c75ccfb189af8d}{swipeRefreshLayout}.setRefreshing(\textcolor{keyword}{false}); \textcolor{comment}{// arrête le Pull To Refresh}
+00193     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a6624feade3dc156bc7eb40f79cb47267}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a6624feade3dc156bc7eb40f79cb47267}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!initialiser\+Liste\+Espaces\+De\+Travail@{initialiser\+Liste\+Espaces\+De\+Travail}}
+\index{initialiser\+Liste\+Espaces\+De\+Travail@{initialiser\+Liste\+Espaces\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{initialiser\+Liste\+Espaces\+De\+Travail()}{initialiserListeEspacesDeTravail()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Liste\+Espaces\+De\+Travail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialise la vue pour les espaces de travail. 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00263}{263} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00171}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Espaces\+De\+Travail()}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00060}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Create()}.
+
+
+\begin{DoxyCode}
+00264     \{
+00265         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"initialiserListeEspacesDeTravail()"});
+00266 
+00267         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail} = \textcolor{keyword}{new} Vector<EspaceDeTravail>();
+00268 
+00269         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ae32ea3420cbe17af0b32df447e326427}{listeEspacesDeTravail} = (ListView)findViewById(R.id.listeEspacesDeTravail);
+00270 
+00271         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur} = \textcolor{keyword}{new} EspaceDeTravailAdaptateur(\textcolor{keyword}{this}, R.layout.element\_espace\_travail, 
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail});
+00272 
+00273         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad4660f416b16b6df0f96d58f4c36b6f6}{initialiserEspacesDeTravail}();
+00274 
+00275         listeEspacesDeTravail.setAdapter(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur});
+00276         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur}.setNotifyOnChange(\textcolor{keyword}{true});
+00277 
+00278         listeEspacesDeTravail.setOnItemClickListener(
+00279             \textcolor{keyword}{new} AdapterView.OnItemClickListener()
+00280             \{
+00281                 @Override
+00282                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} onItemClick(AdapterView<?> a, View v, \textcolor{keywordtype}{int} position, \textcolor{keywordtype}{long} \textcolor{keywordtype}{id})
+00283                 \{
+00284                     Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"Position : "} + position + \textcolor{stringliteral}{" - "} + \textcolor{stringliteral}{" Nom : "} + 
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.get(position).getNom());
+00285                     Intent intent = \textcolor{keyword}{new} Intent(IHMMeeting.this, AffichageEspaceDeTravail.class);
+00286                     intent.putExtra(\textcolor{stringliteral}{"unEspaceDeTravail"}, (Serializable)
+      \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.get(position));
+00287                     startActivityForResult(intent, 0);
+00288                 \}
+00289             \}
+00290         );
+00291     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a3367c0a9b9743ca7808cb2265789f9b8}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a3367c0a9b9743ca7808cb2265789f9b8}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!modifier\+Espace\+De\+Travail@{modifier\+Espace\+De\+Travail}}
+\index{modifier\+Espace\+De\+Travail@{modifier\+Espace\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{modifier\+Espace\+De\+Travail()}{modifierEspaceDeTravail()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+modifier\+Espace\+De\+Travail (\begin{DoxyParamCaption}\item[{\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail}}]{espace\+De\+Travail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Modifie un espace de travail si déjà détecté 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em espace\+De\+Travail} & l\textquotesingle{}espace de travail modifié \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00214}{214} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00248}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+verifier\+Presence\+Espace\+De\+Travail()}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00297}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Activity\+Result()}.
+
+
+\begin{DoxyCode}
+00215     \{
+00216         \textcolor{keywordtype}{int} position = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a402dc23f375fae1f1faa3d5728cdad00}{verifierPresenceEspaceDeTravail}(espaceDeTravail);
+00217         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"modifierEspaceDeTravail() : position = "} + position);
+00218 
+00219         \textcolor{keywordflow}{if}(position != -1)
+00220         \{
+00221             \textcolor{comment}{//espacesDeTravail.removeElementAt(position);}
+00222             \textcolor{comment}{//espacesDeTravail.add(espaceDeTravail);}
+00223             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.set(position, espaceDeTravail);
+00224             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur}.notifyDataSetChanged();
+00225         \}
+00226     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_aa7f5623eef9a049cf786ff15a4c63274}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_aa7f5623eef9a049cf786ff15a4c63274}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Activity\+Result@{on\+Activity\+Result}}
+\index{on\+Activity\+Result@{on\+Activity\+Result}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Activity\+Result()}{onActivityResult()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Activity\+Result (\begin{DoxyParamCaption}\item[{int}]{request\+Code,  }\item[{int}]{result\+Code,  }\item[{Intent}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Traite le retour de l\textquotesingle{}activité d\textquotesingle{}affichage d\textquotesingle{}un espace de travail. 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00297}{297} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_espace_de_travail_8java_source_l00117}{com.\+lasalle.\+meeting.\+Espace\+De\+Travail.\+get\+Est\+Reserve()}, et \hyperlink{_i_h_m_meeting_8java_source_l00214}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+modifier\+Espace\+De\+Travail()}.
+
+
+\begin{DoxyCode}
+00298     \{
+00299         super.onActivityResult(requestCode, resultCode, data);
+00300         EspaceDeTravail espaceDeTravail = (EspaceDeTravail)data.getSerializableExtra(\textcolor{stringliteral}{"unEspaceDeTravail"});
+00301         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onActivityResult() espaceDeTravail : "} + espaceDeTravail.getEstReserve());
+00302 
+00303         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a3367c0a9b9743ca7808cb2265789f9b8}{modifierEspaceDeTravail}(espaceDeTravail);
+00304     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a34012ee88c1e079fef93ed115978d669}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a34012ee88c1e079fef93ed115978d669}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Create()}{onCreate()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Méthode appelée à la création de l\textquotesingle{}activité 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00060}{60} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00082}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+demarrer\+Reseau()}, \hyperlink{_i_h_m_meeting_8java_source_l00171}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Espaces\+De\+Travail()}, et \hyperlink{_i_h_m_meeting_8java_source_l00263}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Liste\+Espaces\+De\+Travail()}.
+
+
+\begin{DoxyCode}
+00061     \{
+00062         super.onCreate(savedInstanceState);
+00063         setContentView(R.layout.activity\_main);
+00064         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onCreate()"});
+00065 
+00066         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a64f84fda5f7f595cf0c75ccfb189af8d}{swipeRefreshLayout} = (SwipeRefreshLayout)findViewById(R.id.swipeRefreshLayout);
+00067         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a64f84fda5f7f595cf0c75ccfb189af8d}{swipeRefreshLayout}.setOnRefreshListener(\textcolor{keyword}{new} SwipeRefreshLayout.OnRefreshListener(
+      )
+00068         \{
+00069             @Override
+00070             \textcolor{keyword}{public} \textcolor{keywordtype}{void} onRefresh()
+00071             \{
+00072                 Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"Pull To Refresh"});
+00073                 \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad4660f416b16b6df0f96d58f4c36b6f6}{initialiserEspacesDeTravail}();
+00074             \}
+00075         \});
+00076 
+00077         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a6624feade3dc156bc7eb40f79cb47267}{initialiserListeEspacesDeTravail}();
+00078 
+00079         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ab9ef4bd3436aa480f92a5b1922fd6666}{demarrerReseau}();
+00080     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a949a2219b9b5c29f7c1a9855a782a676}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a949a2219b9b5c29f7c1a9855a782a676}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Destroy@{on\+Destroy}}
+\index{on\+Destroy@{on\+Destroy}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Destroy()}{onDestroy()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Méthode appelée à la destruction de l\textquotesingle{}application (après \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}{on\+Stop()} et détruite par le système Android) 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00157}{157} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+\begin{DoxyCode}
+00158     \{
+00159         super.onDestroy();
+00160         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onDestroy()"});
+00161     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1663a4b9bcff059ab95a72ca019cffb1}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1663a4b9bcff059ab95a72ca019cffb1}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Pause@{on\+Pause}}
+\index{on\+Pause@{on\+Pause}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Pause()}{onPause()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Méthode appelée après qu\textquotesingle{}une boîte de dialogue s\textquotesingle{}est affichée (on reprend sur un \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af9a99a4aa01c58f7d85e0d6e6d13eaa4}{on\+Resume()}) ou avant \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}{on\+Stop()} (activité plus visible) 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00137}{137} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+\begin{DoxyCode}
+00138     \{
+00139         super.onPause();
+00140         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onPause()"});
+00141     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af9a99a4aa01c58f7d85e0d6e6d13eaa4}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af9a99a4aa01c58f7d85e0d6e6d13eaa4}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Resume@{on\+Resume}}
+\index{on\+Resume@{on\+Resume}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Resume()}{onResume()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Méthode appelée après \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a55bd9ed1bd85ada8c53930fb1650a954}{on\+Start()} ou après \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1663a4b9bcff059ab95a72ca019cffb1}{on\+Pause()} 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00127}{127} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+\begin{DoxyCode}
+00128     \{
+00129         super.onResume();
+00130         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onResume()"});
+00131     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a55bd9ed1bd85ada8c53930fb1650a954}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a55bd9ed1bd85ada8c53930fb1650a954}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Start@{on\+Start}}
+\index{on\+Start@{on\+Start}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Start()}{onStart()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Méthode appelée au démarrage de l\textquotesingle{}activité Main\+Activity. 
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00114}{114} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00171}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+initialiser\+Espaces\+De\+Travail()}.
+
+
+\begin{DoxyCode}
+00115     \{
+00116         super.onStart();
+00117         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onStart()"});
+00118 
+00119         \textcolor{comment}{// Rafraichir la liste des espaces de travail ?}
+00120         \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ad4660f416b16b6df0f96d58f4c36b6f6}{initialiserEspacesDeTravail}();
+00121     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a74e6b3e48ce9a26612916194d4692e6a}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!on\+Stop@{on\+Stop}}
+\index{on\+Stop@{on\+Stop}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{on\+Stop()}{onStop()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+on\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Méthode appelée lorsque l\textquotesingle{}activité n\textquotesingle{}est plus visible. 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00147}{147} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+\begin{DoxyCode}
+00148     \{
+00149         super.onStop();
+00150         Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"onStop()"});
+00151     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1418ee16ded8b09f4c4a9c1a9359163a}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a1418ee16ded8b09f4c4a9c1a9359163a}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!supprimer\+Espace\+De\+Travail@{supprimer\+Espace\+De\+Travail}}
+\index{supprimer\+Espace\+De\+Travail@{supprimer\+Espace\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{supprimer\+Espace\+De\+Travail()}{supprimerEspaceDeTravail()}}
+{\footnotesize\ttfamily void com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+supprimer\+Espace\+De\+Travail (\begin{DoxyParamCaption}\item[{\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail}}]{espace\+De\+Travail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Supprime un espace de travail si déjà détecté 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em espace\+De\+Travail} & l\textquotesingle{}espace de travail à supprimer \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00232}{232} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_i_h_m_meeting_8java_source_l00248}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+verifier\+Presence\+Espace\+De\+Travail()}.
+
+
+\begin{DoxyCode}
+00233     \{
+00234         \textcolor{keywordtype}{int} position = \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a402dc23f375fae1f1faa3d5728cdad00}{verifierPresenceEspaceDeTravail}(espaceDeTravail);
+00235 
+00236         \textcolor{keywordflow}{if}(position != -1)
+00237         \{
+00238             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.removeElementAt(position);
+00239             \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}{adaptateur}.notifyDataSetChanged();
+00240         \}
+00241     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a402dc23f375fae1f1faa3d5728cdad00}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a402dc23f375fae1f1faa3d5728cdad00}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!verifier\+Presence\+Espace\+De\+Travail@{verifier\+Presence\+Espace\+De\+Travail}}
+\index{verifier\+Presence\+Espace\+De\+Travail@{verifier\+Presence\+Espace\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{verifier\+Presence\+Espace\+De\+Travail()}{verifierPresenceEspaceDeTravail()}}
+{\footnotesize\ttfamily int com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+verifier\+Presence\+Espace\+De\+Travail (\begin{DoxyParamCaption}\item[{\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail}}]{espace\+De\+Travail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vérifie la présence d\textquotesingle{}un espace de travail dans le conteneur des espaces de travail détectés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em espace\+De\+Travail} & l\textquotesingle{}espace de travail à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int la position dans le conteneur sinon -\/1 en cas d\textquotesingle{}abesence 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00248}{248} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Références \hyperlink{_espace_de_travail_8java_source_l00087}{com.\+lasalle.\+meeting.\+Espace\+De\+Travail.\+get\+Nom()}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00199}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+ajouter\+Espace\+De\+Travail()}, \hyperlink{_i_h_m_meeting_8java_source_l00214}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+modifier\+Espace\+De\+Travail()}, et \hyperlink{_i_h_m_meeting_8java_source_l00232}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+supprimer\+Espace\+De\+Travail()}.
+
+
+\begin{DoxyCode}
+00249     \{
+00250         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.size(); ++i)
+00251         \{
+00252             \textcolor{keywordflow}{if}(espaceDeTravail.getNom().equals(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}{espacesDeTravail}.elementAt(i).getNom()))
+00253             \{
+00254                 \textcolor{keywordflow}{return} i;
+00255             \}
+00256         \}
+00257         \textcolor{keywordflow}{return} -1;
+00258     \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ac103010077163ba43b830ffe524f476d}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!adaptateur@{adaptateur}}
+\index{adaptateur@{adaptateur}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{adaptateur}{adaptateur}}
+{\footnotesize\ttfamily \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail_adaptateur}{Espace\+De\+Travail\+Adaptateur} com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+adaptateur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adaptateur pour les espaces de travail. 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00052}{52} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a12567e2164a68e0cbe74487935c1263e}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!communication@{communication}}
+\index{communication@{communication}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{communication}{communication}}
+{\footnotesize\ttfamily \hyperlink{classcom_1_1lasalle_1_1meeting_1_1_communication}{Communication} com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+communication = null\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+attribut permettant d\textquotesingle{}envoyer des requêtes 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00053}{53} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acba41978aec60c27f07db774f9b68b68}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!espaces\+De\+Travail@{espaces\+De\+Travail}}
+\index{espaces\+De\+Travail@{espaces\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{espaces\+De\+Travail}{espacesDeTravail}}
+{\footnotesize\ttfamily Vector$<$\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_espace_de_travail}{Espace\+De\+Travail}$>$ com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+espaces\+De\+Travail\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Conteneur pour les espaces de travail. 
+
+Les attributs 
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00051}{51} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00163}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+get\+Espaces\+De\+Travail()}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af0a341dd3f520bba9d94b4b083ff75af}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_af0a341dd3f520bba9d94b4b083ff75af}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!handler@{handler}}
+\index{handler@{handler}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily Handler com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+handler\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Handler()
+    \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleMessage(Message msg)
+        \{
+            super.handleMessage(msg);
+            Bundle b = msg.getData();
+
+            \textcolor{keywordflow}{switch}(msg.what)
+            \{
+                \textcolor{keywordflow}{case} Communication.TYPE\_RECEPTION:
+                    String trame = b.getString(\textcolor{stringliteral}{"donnees"});
+                    Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG}, \textcolor{stringliteral}{"handleMessage() Réception ["} + b.getString(\textcolor{stringliteral}{"adresseIP"}) + \textcolor{stringliteral}{":"} + b.getInt
+      (\textcolor{stringliteral}{"port"}) + \textcolor{stringliteral}{"] -> "} + trame);
+
+                    
+
+                    \textcolor{keywordflow}{break};
+                \textcolor{keywordflow}{default}:
+                    Log.d(\hyperlink{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}{TAG},\textcolor{stringliteral}{"handleMessage() : code inconnu ! "});
+            \}
+        \}
+    \}
+\end{DoxyCode}
+
+
+permet de récuperer les trames 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Message} & msg \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00311}{311} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+Référencé par \hyperlink{_i_h_m_meeting_8java_source_l00082}{com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+demarrer\+Reseau()}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ae32ea3420cbe17af0b32df447e326427}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_ae32ea3420cbe17af0b32df447e326427}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!liste\+Espaces\+De\+Travail@{liste\+Espaces\+De\+Travail}}
+\index{liste\+Espaces\+De\+Travail@{liste\+Espaces\+De\+Travail}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{liste\+Espaces\+De\+Travail}{listeEspacesDeTravail}}
+{\footnotesize\ttfamily List\+View com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+liste\+Espaces\+De\+Travail\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Affichage des espaces de travail sous forme de liste. 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00046}{46} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a64f84fda5f7f595cf0c75ccfb189af8d}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a64f84fda5f7f595cf0c75ccfb189af8d}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!swipe\+Refresh\+Layout@{swipe\+Refresh\+Layout}}
+\index{swipe\+Refresh\+Layout@{swipe\+Refresh\+Layout}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{swipe\+Refresh\+Layout}{swipeRefreshLayout}}
+{\footnotesize\ttfamily Swipe\+Refresh\+Layout com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+swipe\+Refresh\+Layout\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pour le Pull To Refresh 
+
+Les ressources de l\textquotesingle{}I\+HM 
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00045}{45} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_a239eafcb0ccc896bdba538d1c0f08e65}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!T\+AG@{T\+AG}}
+\index{T\+AG@{T\+AG}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{T\+AG}{TAG}}
+{\footnotesize\ttfamily final String com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+T\+AG = \char`\"{}\+\_\+\+I\+H\+M\+Meeting\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+T\+AG pour les logs. 
+
+Les constantes 
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00040}{40} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+\mbox{\Hypertarget{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acdbac7f6ea8e7a8ed99e0ceaaf0f9f97}\label{classcom_1_1lasalle_1_1meeting_1_1_i_h_m_meeting_acdbac7f6ea8e7a8ed99e0ceaaf0f9f97}} 
+\index{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}!wm@{wm}}
+\index{wm@{wm}!com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting@{com\+::lasalle\+::meeting\+::\+I\+H\+M\+Meeting}}
+\paragraph{\texorpdfstring{wm}{wm}}
+{\footnotesize\ttfamily Wifi\+Manager com.\+lasalle.\+meeting.\+I\+H\+M\+Meeting.\+wm = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+attribut permettant de voir la connection au Wi\+Fi 
+
+
+
+Définition à la ligne \hyperlink{_i_h_m_meeting_8java_source_l00054}{54} du fichier \hyperlink{_i_h_m_meeting_8java_source}{I\+H\+M\+Meeting.\+java}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_i_h_m_meeting_8java}{I\+H\+M\+Meeting.\+java}\end{DoxyCompactItemize}
